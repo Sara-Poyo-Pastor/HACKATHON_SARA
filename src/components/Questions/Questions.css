@@ -1,0 +1,48 @@
+.post {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.post h3 {
+  margin: 0 0 10px 0;
+}
+
+.post form {
+  margin-top: 10px;
+}
+
+.post form input {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post form button {
+  padding: 10px;
+}
+
+.post form button,
+.post button {
+  margin-right: 5px;
+}
+
+.post div {
+  margin-top: 10px;
+}
+
+.post div p {
+  margin: 0 0 5px 0;
+}
+
+.post div button {
+  padding: 5px;
+  margin-right: 5px;
+}
+.nothing{
+  margin: 2%;
+}
+.add{
+  margin: 2%;
+}

@@ -1,0 +1,44 @@
+/* YoutubeCard.css */
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.video-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    width: 340px; /* Ajusta el ancho según necesites */
+}
+
+.video-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.youtubeTitle {
+    margin: 2%;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    margin: 20px auto; 
+    display: block; 
+}
+
+iframe {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 4px; /* Opcional: redondea las esquinas del iframe */
+}

@@ -1,0 +1,72 @@
+.welcomeText {
+	color: #183153;
+	text-align: center;
+	margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.greetingRegistration {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+.textRegistration {
+	font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.registrationForm {
+	background-color: #c8e3df;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 5%;
+	padding: 20px;
+}
+#regis {
+	cursor: pointer;
+	text-align: center;
+	font-size: 0.9rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px; 
+	width: 100%; 
+	max-width: 400px; 
+}
+
+.identifier {
+	color: #183153;
+	font-size: 1rem;
+	font-weight: 500;
+	margin-bottom: 5px; 
+}
+
+.registrationBox,
+.registrationBox1 {
+    border-radius: 6px;
+	border: 3px solid #183153;
+    margin: 5px 0;
+    background-color: #ffffff;
+	color: #183153;
+	width: 100%; 
+	padding: 8px; 
+	box-sizing: border-box; 
+}
+
+.registrationButton {
+	background-color: #559092;
+    border: 3px solid #559092;
+	color: #E4E2F9;
+	border-radius: 8px;
+	width: 100%; 
+    height: 40px;
+	margin: 20px 0;
+	cursor: pointer;
+    font-size: 1.1rem;
+	max-width: 200px; 
+}

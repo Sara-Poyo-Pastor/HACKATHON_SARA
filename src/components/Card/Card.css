@@ -1,0 +1,37 @@
+/* src/components/Card.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 16px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    max-width: 300px;
+    flex: 1 1 200px; /* Permite que las tarjetas se adapten */
+  }
+  
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .card a {
+    text-decoration: none;
+    color: #559092;
+    font-weight: bold;
+  }
+  

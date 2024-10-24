@@ -1,0 +1,48 @@
+.avatar-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 0;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.dropdown-menu {
+    padding: auto;
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    right: 0;
+    text-align: center;
+}
+.dduserName{
+    text-decoration: underline;
+}
+
+.ddButton{
+    background-color: #183153;
+    border-radius: 10%;
+    color: white;
+    font-weight: 600;
+    margin:10% 5%;
+    cursor: pointer;
+    padding: 10% 0;
+    width: 100px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    
+}
+.ddButton:hover {
+    background: #D5D2F6;
+    color: #183153;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.avatar-container:hover .dropdown-menu {
+    display: block;
+}

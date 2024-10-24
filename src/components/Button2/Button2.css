@@ -1,0 +1,25 @@
+.Button2 {
+    background-color: #fafafa;
+    border: 3px solid #183153;
+    border-radius: 8px;
+    color: #183153;
+    /*padding: 10px 20px;*/
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    width: 276px;
+    height: 50px;
+  }
+
+  .contentHome
+  {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 26vh;
+  }
+  
+  .Button2:hover {
+    background-color: #183153;
+    color: #E7E5F9;
+  }
