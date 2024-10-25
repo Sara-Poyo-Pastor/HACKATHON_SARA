@@ -17,3 +17,7 @@ body{
   flex: 1; 
   margin-bottom: 80px; 
 }
+.carousel-container {
+  width: 90%;
+  margin: 0 auto;
+}

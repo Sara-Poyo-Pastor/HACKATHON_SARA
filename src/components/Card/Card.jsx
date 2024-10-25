@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Slider from 'react-slick'; 
 import './Card.css'; 
 
-function NewsCard() {
+function Card() {
   const [articles, setArticles] = useState([]); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
@@ -41,7 +41,6 @@ function NewsCard() {
     return <div>Error: {error}</div>;
   }
 
- 
   const settings = {
     dots: true,
     infinite: true,
@@ -65,7 +64,7 @@ function NewsCard() {
   );
 }
 
-export default NewsCard;
+export default Card;
 
 
 

@@ -6,11 +6,9 @@ const Questions = () => {
     const savedPosts = localStorage.getItem('posts');
     return savedPosts ? JSON.parse(savedPosts) : [];
   });
-
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
-  const [editPostId, setEditPostId] = useState(null);
-  const [editAnswerIndex, setEditAnswerIndex] = useState(null);
+  const userName = localStorage.getItem('user_name');
 
   useEffect(() => {
     localStorage.setItem('posts', JSON.stringify(posts));
@@ -18,68 +16,49 @@ const Questions = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!question) return;
+    if (!question) return; // No permitir preguntas vacías
 
-    const currentDate = new Date().toLocaleString(); // Obtiene la fecha y hora actual
+    const newPost = {
+      id: Date.now(),
+      question: question,
+      answers: [],
+      author: userName,
+      date: new Date().toLocaleString(),
+    };
 
-    if (editPostId !== null) {
-      setPosts(posts.map(post => 
-        post.id === editPostId ? { ...post, question: question, date: currentDate } : post
-      ));
-      setEditPostId(null);
-    } else {
-      const newPost = {
-        id: Date.now(),
-        question: question,
-        answers: [],
-        date: currentDate // Almacena la fecha y hora de la publicación
-      };
-      setPosts([...posts, newPost]);
-    }
+    setPosts([...posts, newPost]);
     setQuestion('');
   };
 
   const handleAnswerSubmit = (postId) => {
     if (!answer) return;
 
-    const currentDate = new Date().toLocaleString(); // Obtiene la fecha y hora actual
-
     const updatedPosts = posts.map(post => {
       if (post.id === postId) {
-        const updatedAnswers = post.answers.map((ans, index) => 
-          index === editAnswerIndex ? { text: answer, date: currentDate } : ans
-        );
-
-        return { ...post, answers: editAnswerIndex !== null ? updatedAnswers : [...post.answers, { text: answer, date: currentDate }] };
+        return { 
+          ...post, 
+          answers: [...post.answers, { text: answer, author: userName, date: new Date().toLocaleString() }] 
+        };
       }
       return post;
     });
 
     setPosts(updatedPosts);
     setAnswer('');
-    setEditAnswerIndex(null);
-  };
-
-  const handleEditPost = (post) => {
-    setQuestion(post.question);
-    setEditPostId(post.id);
   };
 
   const handleDeletePost = (postId) => {
-    setPosts(posts.filter(post => post.id !== postId));
+    const updatedPosts = posts.filter(post => post.id !== postId);
+    setPosts(updatedPosts);
   };
 
-  const handleEditAnswer = (postId, index) => {
-    const post = posts.find(post => post.id === postId);
-    setAnswer(post.answers[index].text);
-    setEditAnswerIndex(index);
-  };
-
-  const handleDeleteAnswer = (postId, index) => {
+  const handleDeleteAnswer = (postId, answerIndex) => {
     const updatedPosts = posts.map(post => {
       if (post.id === postId) {
-        const updatedAnswers = post.answers.filter((_, ansIndex) => ansIndex !== index);
-        return { ...post, answers: updatedAnswers };
+        return { 
+          ...post, 
+          answers: post.answers.filter((_, index) => index !== answerIndex) 
+        };
       }
       return post;
     });
@@ -87,19 +66,39 @@ const Questions = () => {
     setPosts(updatedPosts);
   };
 
+  const handlePaste = (e) => {
+    const items = e.clipboardData.items;
+
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.kind === 'file' && item.type.startsWith('image/')) {
+        const file = item.getAsFile();
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setQuestion((prev) => prev + `![Image](${reader.result})`); // Inserta la imagen en el textarea como un marcador
+        };
+        reader.readAsDataURL(file);
+        e.preventDefault(); // Prevenir la acción de pegar texto
+        return;
+      }
+    }
+  };
+
   return (
     <div>
-      <h2 className='title'>Foro de Preguntas y Respuestas</h2>
-      
+      <h2>Foro de Preguntas y Respuestas</h2>
+
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Escribe tu pregunta"
+        <textarea
+          placeholder="Escribe tu pregunta o pega una imagen aquí"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           required
+          rows={4}
+          style={{ width: '100%' }}
+          onPaste={handlePaste} // Maneja el evento de pegar
         />
-        <button className='add' type="submit">{editPostId !== null ? 'Editar Pregunta' : 'Agregar Pregunta'}</button>
+        <button type="submit">Agregar Pregunta</button>
       </form>
 
       <div>
@@ -107,9 +106,8 @@ const Questions = () => {
           posts.map((post) => (
             <div key={post.id} className="post">
               <h3>{post.question}</h3>
-              <p><small>Publicado el: {post.date}</small></p> {/* Muestra la fecha y hora */}
-              <button onClick={() => handleEditPost(post)}>Editar</button>
-              <button onClick={() => handleDeletePost(post.id)}>Eliminar</button>
+              <p>Pregunta por: {post.author} - {post.date}</p>
+              <button onClick={() => handleDeletePost(post.id)}>Eliminar Pregunta</button>
               <form onSubmit={(e) => { e.preventDefault(); handleAnswerSubmit(post.id); }}>
                 <input
                   type="text"
@@ -118,7 +116,7 @@ const Questions = () => {
                   onChange={(e) => setAnswer(e.target.value)}
                   required
                 />
-                <button type="submit">{editAnswerIndex !== null ? 'Editar Respuesta' : 'Agregar Respuesta'}</button>
+                <button type="submit">Agregar Respuesta</button>
               </form>
               <div>
                 {post.answers.length > 0 && (
@@ -126,10 +124,8 @@ const Questions = () => {
                     <h4>Respuestas:</h4>
                     {post.answers.map((ans, index) => (
                       <div key={index}>
-                        <p>{ans.text}</p>
-                        <p><small>Respuesta el: {ans.date}</small></p> 
-                        <button onClick={() => handleEditAnswer(post.id, index)}>Editar</button>
-                        <button onClick={() => handleDeleteAnswer(post.id, index)}>Eliminar</button>
+                        <p>{ans.text} - Respuesta por: {ans.author} - {ans.date}</p>
+                        <button onClick={() => handleDeleteAnswer(post.id, index)}>Eliminar Respuesta</button>
                       </div>
                     ))}
                   </div>
@@ -138,7 +134,7 @@ const Questions = () => {
             </div>
           ))
         ) : (
-          <p className='nothing'>No hay publicaciones disponibles.</p>
+          <p>No hay publicaciones disponibles.</p>
         )}
       </div>
     </div>
@@ -146,3 +142,4 @@ const Questions = () => {
 };
 
 export default Questions;
+

@@ -2,6 +2,7 @@ import './Principal.css'
 import Card from '../../components/Card/Card';
 import Questions from '../../components/Questions/Questions';
 import YoutubeCard from '../../components/YoutubeCard/YoutubeCard';
+import RetoCard from '../../components/RetoCard/RetoCard'
 
 function Principal() {
     const userName = localStorage.getItem('user_name');
@@ -14,7 +15,7 @@ function Principal() {
             </div>
             <div>
                 <div className='title'>Retos</div>
-                <Card/>
+                <RetoCard/>
             </div>
             <div>
                 <div className='title'>¿Estás al día?</div>
