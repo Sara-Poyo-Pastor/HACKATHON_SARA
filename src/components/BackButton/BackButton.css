@@ -1,9 +1,29 @@
-.Back{
-    background-color: transparent;
-    border-color: transparent;
-    text-decoration: underline;
+.Back {
+    margin: 2%;
+    background-color: #559092; /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    text-align: center; /* Centrar texto */
     margin-left: 2%;
     margin-top: 1%;
-    cursor: pointer;
-    font-size: 20px;
+}
+
+/* Efecto hover */
+.Back:hover {
+    background-color: #3ebcc0; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+.Back:focus {
+    outline: none; /* Sin contorno en el enfoque */
+}
+
+.Back:active {
+    background-color: #004085; /* Color de fondo al hacer clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al hacer clic */
 }

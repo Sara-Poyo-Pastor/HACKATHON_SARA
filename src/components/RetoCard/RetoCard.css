@@ -1,15 +1,18 @@
 .card-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 90%;
-    margin: 0 auto;
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90vw;
   }
   
   .level-section {
     background-color: #559092;
     padding: 15px;
     border-radius: 8px;
+    flex: 1 1 calc(33.33% - 20px); /* Ajusta el ancho de cada tarjeta para que ocupen 1/3 del contenedor, restando el gap */
+    box-sizing: border-box;
+    margin: 10px 0; /* Margen vertical entre las secciones */
   }
   
   .level-section h2 {
@@ -25,6 +28,8 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
+    width: 100%; /* Ajusta el ancho de cada tarjeta */
+    box-sizing: border-box; 
   }
   
   .card h3 {

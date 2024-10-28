@@ -5,18 +5,18 @@ import YoutubeCard from '../../components/YoutubeCard/YoutubeCard';
 import RetoCard from '../../components/RetoCard/RetoCard'
 
 function Principal() {
-    const userName = localStorage.getItem('user_name');
-
+    
     return(
         <>
             <div className='emptyBox'></div>
             <div className='text'>
-                <h1 className='greetingTextUser'>¡Hola, {userName ?` ${userName}` : ''}!</h1>
+                <h1 className='greetingTextUser'>¡Hola!</h1>
             </div>
-            <div>
+            
                 <div className='title'>Retos</div>
+                <div className='retosContainer'>
                 <RetoCard/>
-            </div>
+                </div>
             <div>
                 <div className='title'>¿Estás al día?</div>
                 <Card/>

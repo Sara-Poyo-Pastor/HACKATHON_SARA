@@ -1,5 +1,5 @@
 .navbar {
-    background-color: ##C8E3DF;
+    background-color: #C8E3DF;
     width: 100%;
     min-height: 10vh;
     display: grid;
@@ -13,7 +13,4 @@
     justify-self: center;
     width: 230px;
     height: 55px;
-}
-.avatar{
-    justify-self: end;
 }

@@ -15,10 +15,11 @@
     margin: 30px;
 }
 
-.overheadSpace{
-    min-height: 13vh;
-}
-
-.spaceBelow{
-    min-height: 20vh;
+.contentHome {
+    height: 80vh;
+    flex: 1; /* Hace que este contenedor ocupe todo el espacio disponible */
+    display: flex; /* O puedes usar grid si prefieres */
+    flex-direction: column; /* Apilar el contenido verticalmente */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
 }

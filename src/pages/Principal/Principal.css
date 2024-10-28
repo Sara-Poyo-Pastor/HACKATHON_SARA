@@ -1,3 +1,11 @@
+.retosContainer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	width: 100vw;
+}
+
 .emptyBox{
 	height: 130px;
 }

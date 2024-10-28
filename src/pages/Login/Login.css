@@ -1,62 +1,96 @@
+/* Login.css */
 .login-container {
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 80vh;
-}
-
-.welcomeTextLogin {
-	background-color: #c8e3df;
-	color: #183153;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 69.7vh;
+	padding: 20px;
+	box-sizing: border-box;
+  }
+  
+  .welcomeTextLogin {
 	text-align: center;
-	margin-bottom: 25px;
-}
-
-.greetingLogin {
+	margin-bottom: 20px;
+  }
+  
+  .greetingLogin {
 	font-size: 2rem;
-	font-weight: 500;
-}
-
-.textLogin {
-	font-weight: 500;
-    font-size: 1rem;
-}
-
-.loginForm {
-	display: flex;
-	flex-direction: column;
-	align-items: center
-}
-
-.registrationLogin {
-	display: flex;
-	flex-direction: column;
-}
-
-.identifierLogin {
-	color: #183153;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-.dataLogin {
-	border-radius: 6px;
-	border: 3px solid #559092;
-    margin: 5px;
-    background-color: #f3f3f3;
-	color: #183153;
-	width: 276px;
-	height: 50px;
-}
-
-.loginButton {
-	background-color: #559092;
-    border: 3px solid #559092;
-	color: #E4E2F9;
+	font-weight: bold;
+	color: #333;
+  }
+  
+  .textLogin {
+	font-size: 1rem;
+	color: #666;
+  }
+  
+  .loginTitle {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 20px;
+  }
+  
+  form {
+	background-color: #fff;
+	padding: 20px 30px;
 	border-radius: 8px;
-	width: 196px;
-    height: 35px;
-	margin: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+  }
+  
+  form div {
+	margin-bottom: 15px;
+  }
+  
+  label {
+	font-size: 1rem;
+	color: #333;
+	display: block;
+	margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	transition: border-color 0.3s;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+	border-color: #0077ff;
+	outline: none;
+  }
+  
+  .loginButton {
+	background-color: #559092;
+	color: #fff;
+	font-size: 1rem;
+	font-weight: bold;
+	padding: 10px;
+	width: 100%;
+	border: none;
+	border-radius: 4px;
 	cursor: pointer;
-    font-size: 1.1rem;
-}
+	transition: background-color 0.3s;
+  }
+  
+  .loginButton:hover {
+	background-color: #3ebcc0;
+  }
+  
+  .loginButton:active {
+	background-color: #3ebcc0;
+  }
+  
+  .loginButton:focus {
+	outline: 2px solid #3ebcc0;
+	outline-offset: 2px;
+  }
+  
